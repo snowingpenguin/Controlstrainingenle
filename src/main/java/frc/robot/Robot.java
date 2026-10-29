@@ -4,15 +4,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import com.revrobotics.spark.SparkMax;
-import com.revrobotics.spark.SparkLowLevel.MotorType;
-import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 /**
  * The methods in this class are called automatically corresponding to each mode, as described in
  * the TimedRobot documentation. If you change the name of this class or the package after creating
@@ -20,17 +19,24 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
-  private final RobotContainer m_robotContainer;
+//private final PWMSparkMax m_leftDrive = new PWMSparkMax(0);
+//  private final PWMSparkMax m_rightDrive = new PWMSparkMax(1);
+  //private final DifferentialDrive m_robotDrive =
+      //new DifferentialDrive(m_leftDrive::set, m_rightDrive::set);
+  //private final XboxController m_controller = new XboxController(0);
+  //private final Timer m_timer = new Timer();
+  //private final RobotContainer m_robotContainer;
 
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
    */
   public Robot() {
+   // SendableRegistry.addChild(m_robotDrive, m_leftDrive);
+   // SendableRegistry.addChild(m_robotDrive, m_rightDrive);
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    m_robotContainer = new RobotContainer();
+   // m_robotContainer = new RobotContainer();
   }
 
   /**
@@ -59,7 +65,7 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+    //m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {

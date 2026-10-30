@@ -34,9 +34,9 @@ public class RobotContainer {
   public RobotContainer() {
     m_driveTrain.setDefaultCommand(
             new RunCommand(
-                () -> m_driveTrain.TankDrive(
+                () -> m_driveTrain.ArcadeDrive(
                     -m_driverController.getLeftY(),
-                    -m_driverController.getRightY()
+                    -m_driverController.getRightX()
                 ),
                 m_driveTrain
             )
